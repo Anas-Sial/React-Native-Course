@@ -8,6 +8,7 @@ import TabNavigation from './TabNavigation'
 import MapScreen from '../screens/MapScreen'
 import ListandFonts from '../screens/ListandFonts'
 import ListComponent from '../screens/ListComponent'
+import DrawerNavigation from './DrawerNavigation'
 
 const Stack = createNativeStackNavigator()
 
@@ -15,13 +16,14 @@ const StackNavigation = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator screenOptions={{ headerShown: false }}initialRouteName='ListComponent' >
-                <Stack.Screen name="MapScreen" component={MapScreen} />
                 <Stack.Screen name="Login" component={LoginScreen} />
+                <Stack.Screen name="MapScreen" component={MapScreen} />
                 <Stack.Screen name="TabNavigation" component={TabNavigation} />
+                <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
+                
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="ListandFonts" component={ListandFonts} />
                 <Stack.Screen name="ListComponent" component={ListComponent} />
-
             </Stack.Navigator>
         </NavigationContainer>
     )

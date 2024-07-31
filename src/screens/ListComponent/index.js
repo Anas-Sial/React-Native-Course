@@ -1,36 +1,45 @@
-import { FlatList, Image, ScrollView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { FlatList, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
 import { COLOR, FONTS } from '../../enums/StyleGuide'
+
+const studentInformation = [
+    { name: 'Ali', rollNumber: '23', userImage: require('../../assets/images/user1.jpeg'), email: 'anas@gmail.com' },
+    { name: 'Anas', rollNumber: '25', userImage: require('../../assets/images/user2.jpg'), email: 'xpert@gmail.com' },
+    { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
+    { name: 'Ahsan', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
+    { name: 'Ali', rollNumber: '25', userImage: require('../../assets/images/user1.jpeg'), email: 'anas@gmail.com' },
+
+]
 
 const ListComponent = () => {
 
-    const studentInformation = [
-        { name: 'Ali', rollNumber: '23', userImage: require('../../assets/images/user1.jpeg'), email: 'anas@gmail.com', },
-        { name: 'ahmad', rollNumber: '24', userImage: require('../../assets/images/user1.jpeg'), email: 'anas@gmail.com', },
-        { name: 'Anas', rollNumber: '25', userImage: require('../../assets/images/user2.jpg'), email: 'xpert@gmail.com', },
-        { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
-        { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
-        { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
-        { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
-        { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
-        { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
-        { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
-        { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
+    // studentInformation.map((item, index) => (
+    //     item?.name
+    // ))
+    const filteredData = studentInformation.filter(item => item?.name === 'Ali' && item?.rollNumber === '25')
 
-    ]
-
-
+    let number = '5'
+    console.log('Line 22 :: ', number == 5)
     return (
         <View style={styles.container}>
 
+            {/* <TextInput style={styles.inputContainer}
+                placeholder='Enter Email'
+                placeholderTextColor={'black'}
+                value={search}
+                onChangeText={handleSearch}
+            /> */}
+
+            {/* To create Line */}
+            {/* <View style={{ height: '40%', width: 2, backgroundColor: 'black' }} /> */}
+
             <FlatList
-                data={studentInformation}
+                data={filteredData}
                 // horizontal
                 // numColumns={2}
-                keyExtractor={(index) => index.toString()}
                 renderItem={({ item, index }) => {
                     return (
-                        <View style={styles.studentCard}>
+                        <View style={styles.studentCard} key={index}>
                             <Text style={styles.label}>{index + 1}</Text>
                             <Image source={item?.userImage}
                                 style={styles.imageStyle} />
@@ -59,7 +68,6 @@ const ListComponent = () => {
                 ))}
             </ScrollView> */}
 
-
         </View>
     )
 }
@@ -69,7 +77,9 @@ export default ListComponent
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     studentCard: {
         // width: '90%',
@@ -97,5 +107,16 @@ const styles = StyleSheet.create({
         color: COLOR.black,
         fontFamily: FONTS.bold,
         marginLeft: '5%'
+    },
+    inputContainer: {
+        height: 55,
+        width: '92%',
+        backgroundColor: 'white',
+        borderRadius: 12,
+        alignSelf: 'center',
+        borderWidth: 1,
+        borderColor: 'gray',
+        marginTop: '5%',
+        color: 'black'
     },
 })

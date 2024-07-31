@@ -50,7 +50,7 @@ const HomeScreen = ({ navigation, route }) => {
             {/* <Text>{route?.params?.userEmail}</Text> */}
 
             <View style={styles.counterContainer}>
-                <TouchableOpacity style={styles.buttonStyle} onPress={() => handleDecrement()}>
+                <TouchableOpacity style={styles.buttonStyle} onPress={() => navigation.openDrawer()}>
                     <Text style={styles.buttonLabel}>Remove</Text>
                 </TouchableOpacity>
                 <Text style={styles.counterLabel}>{counter}</Text>
