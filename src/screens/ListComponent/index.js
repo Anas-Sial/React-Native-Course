@@ -22,11 +22,13 @@ const ListComponent = () => {
     const eachValue = studentInformation.forEach((item) => {
         return item?.name
     })
-    
+
     // console.log(eachValue)
 
     /* Filter Function */
-    const filteredData = studentInformation.filter(item => item?.name === 'Ali' && item?.rollNumber === '25')
+    const filteredData = studentInformation.filter(item =>
+        item?.name === 'Ali' && item?.rollNumber === '25'
+    )
 
     /* Reducer Function */
 
