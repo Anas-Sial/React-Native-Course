@@ -3,40 +3,54 @@ import React, { useState } from 'react'
 import { COLOR, FONTS } from '../../enums/StyleGuide'
 
 const studentInformation = [
-    { name: 'Ali', rollNumber: '23', userImage: require('../../assets/images/user1.jpeg'), email: 'anas@gmail.com' },
-    { name: 'Anas', rollNumber: '25', userImage: require('../../assets/images/user2.jpg'), email: 'xpert@gmail.com' },
-    { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
-    { name: 'Ahsan', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com' },
-    { name: 'Ali', rollNumber: '25', userImage: require('../../assets/images/user1.jpeg'), email: 'anas@gmail.com' },
+    { name: 'Ali', rollNumber: '23', userImage: require('../../assets/images/user1.jpeg'), email: 'anas@gmail.com', dueFee: 1000 },
+    { name: 'Anas', rollNumber: '25', userImage: require('../../assets/images/user2.jpg'), email: 'xpert@gmail.com', dueFee: 1000 },
+    { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com', dueFee: 1000 },
+    { name: 'Ahsan', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com', dueFee: 1000 },
+    { name: 'Ali', rollNumber: '25', userImage: require('../../assets/images/user1.jpeg'), email: 'anas@gmail.com', dueFee: 1000 },
 
 ]
 
 const ListComponent = () => {
 
-    // studentInformation.map((item, index) => (
-    //     item?.name
-    // ))
+    /* Map Function */
+    const mapValue = studentInformation.map((item) => {
+        return item?.name
+    })
+
+    /* ForEach Function */
+    const eachValue = studentInformation.forEach((item) => {
+        return item?.name
+    })
+    
+    // console.log(eachValue)
+
+    /* Filter Function */
     const filteredData = studentInformation.filter(item => item?.name === 'Ali' && item?.rollNumber === '25')
 
-    let number = '5'
-    console.log('Line 22 :: ', number == 5)
+    /* Reducer Function */
+
+    const sumofVal = studentInformation.reduce((acc, curr) => acc + curr.dueFee,
+        0)
+
+    // console.log('line 28 :: ', sumofVal)
+    /* Operators */
+    // let number = '5'
+    // console.log('Line 22 :: ', number == 5)
     return (
         <View style={styles.container}>
-
             {/* <TextInput style={styles.inputContainer}
                 placeholder='Enter Email'
                 placeholderTextColor={'black'}
                 value={search}
                 onChangeText={handleSearch}
             /> */}
-
+            <Text style={{ color: 'black' }}>{sumofVal}</Text>
             {/* To create Line */}
             {/* <View style={{ height: '40%', width: 2, backgroundColor: 'black' }} /> */}
 
             <FlatList
                 data={filteredData}
-                // horizontal
-                // numColumns={2}
                 renderItem={({ item, index }) => {
                     return (
                         <View style={styles.studentCard} key={index}>
@@ -52,6 +66,8 @@ const ListComponent = () => {
                     )
                 }}
             />
+
+            {/* map Function */}
 
             {/* <ScrollView>
                 {studentInformation.map((item, index) => (
