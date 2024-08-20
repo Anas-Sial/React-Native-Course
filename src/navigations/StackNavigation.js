@@ -1,4 +1,4 @@
-import { StyleSheet} from 'react-native'
+import { StyleSheet } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
@@ -11,13 +11,14 @@ import ListComponent from '../screens/ListComponent'
 import DrawerNavigation from './DrawerNavigation'
 import JsFunction from '../screens/JsFunctions'
 import TimerComponent from '../screens/TimerComponent'
+import LocalStorage from '../screens/LocalStorage'
 
 const Stack = createNativeStackNavigator()
 
 const StackNavigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }}initialRouteName='TimerComponent' >
+            <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='LocalStorage' >
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="MapScreen" component={MapScreen} />
                 <Stack.Screen name="TabNavigation" component={TabNavigation} />
@@ -27,7 +28,7 @@ const StackNavigation = () => {
                 <Stack.Screen name="ListComponent" component={ListComponent} />
                 <Stack.Screen name="JsFunction" component={JsFunction} />
                 <Stack.Screen name="TimerComponent" component={TimerComponent} />
-                
+                <Stack.Screen name="LocalStorage" component={LocalStorage} />
             </Stack.Navigator>
         </NavigationContainer>
     )

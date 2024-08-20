@@ -8,7 +8,6 @@ const studentInformation = [
     { name: 'Aamir', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com', dueFee: 1000 },
     { name: 'Ahsan', rollNumber: '26', userImage: require('../../assets/images/user2.jpg'), email: 'anas@gmail.com', dueFee: 1000 },
     { name: 'Ali', rollNumber: '25', userImage: require('../../assets/images/user1.jpeg'), email: 'anas@gmail.com', dueFee: 1000 },
-
 ]
 
 const ListComponent = () => {
