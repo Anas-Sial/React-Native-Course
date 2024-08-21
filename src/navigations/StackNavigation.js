@@ -12,13 +12,14 @@ import DrawerNavigation from './DrawerNavigation'
 import JsFunction from '../screens/JsFunctions'
 import TimerComponent from '../screens/TimerComponent'
 import LocalStorage from '../screens/LocalStorage'
+import ApiMethods from '../screens/ApiMethods'
 
 const Stack = createNativeStackNavigator()
 
 const StackNavigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='LocalStorage' >
+            <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName='ApiMethods' >
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="MapScreen" component={MapScreen} />
                 <Stack.Screen name="TabNavigation" component={TabNavigation} />
@@ -29,6 +30,8 @@ const StackNavigation = () => {
                 <Stack.Screen name="JsFunction" component={JsFunction} />
                 <Stack.Screen name="TimerComponent" component={TimerComponent} />
                 <Stack.Screen name="LocalStorage" component={LocalStorage} />
+                <Stack.Screen name="ApiMethods" component={ApiMethods} />
+
             </Stack.Navigator>
         </NavigationContainer>
     )

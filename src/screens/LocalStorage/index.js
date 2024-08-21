@@ -19,7 +19,6 @@ const LocalStorage = () => {
         const students = await AsyncStorage.getItem('StudentsData')
         const parsed = JSON.parse(students)
         setUserName(parsed.name)
-
         console.log(name)
         console.log(rollNo)
         console.log(parsed)
@@ -30,7 +29,6 @@ const LocalStorage = () => {
         await AsyncStorage.removeItem('UserName')
         await AsyncStorage.removeItem('RollNo')
         await AsyncStorage.removeItem('StudentsData')
-
         console.log('data is removed')
     }
 
